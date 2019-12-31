@@ -44,6 +44,7 @@ public class TestController {
         response.sendRedirect(authRequest.authorize(AuthStateUtils.createState()));
     }
 
+    //该接口返回code,然后内部调用获取accessToken的接口 + accessToken调用用户信息的数据然后封装成一个对象
     @RequestMapping("/{type}/callback")
     public AuthResponse login(@PathVariable String type, AuthCallback callback) {
         AuthRequest authRequest = factory.get(type);
